@@ -1,0 +1,60 @@
+PS-05 Challenge: Multilingual Document Understanding Timeline and Roles
+Here is a detailed timeline and cast of characters based on the provided sources:
+Detailed Timeline: PS-05 Intelligent Multilingual Document Understanding Challenge
+Phase 1: Challenge Development and Initial Setup
+• Before August 1, 2025:
+    ◦ The "PS-05: Intelligent Multilingual Document Understanding" AI Grand Challenge is conceptualized and defined to address limitations of traditional OCR in handling complex, multilingual, and visually rich digital documents.
+    ◦ The core objectives are set: multilingual layout-aware document parsing across various scripts, formats, and writing directions, accurately extracting structured information while preserving visual hierarchy, semantic grouping, and layout fidelity.
+    ◦ Target languages (English, Hindi, Urdu, Arabic, Nepalese, Persian) are identified.
+    ◦ Output requirements are established: JSON format with natural language descriptions for non-textual elements (tables, images, maps, charts) and line-wise bounding box coordinates for text.
+    ◦ Indicative datasets for training and testing are identified (DocLayNet, PubLayNet, RvlCdip, ICDAR-MLT 2019, HI-OCR, FUNSD, SROIE).
+    ◦ Evaluation metrics for Stage 1 are defined: Mean Average Precision (MaP) at bbox threshold >= 0.5, focusing solely on Document Layout.
+    ◦ Evaluation criteria for the final offline Stage 1 demonstration are set, including mAP score, robustness/efficiency, resource utilization, approach, and team capabilities.
+Phase 2: Stage 1 Execution
+• August 1, 2025 (T0):
+    ◦ The Training Dataset (train_set.zip, up to 10 GB) is released for participants to develop their solutions.
+• August 15, 2025:
+    ◦ Provision for online mentor/expert sessions via online meet or email becomes active for Stage 1 participants to resolve doubts.
+• September 15, 2025 (T0 + 45 days):
+    ◦ The Mock Dataset (Mock_set.zip, up to 10 GB) is released for participant self-assessment.
+    ◦ Solutions are expected to be submitted on Thursdays from this week onwards on the Mock Dataset.
+    ◦ A leaderboard based on the Mock Dataset will begin to be updated every Tuesday.
+• November 4, 2025, 11:00h:
+    ◦ The Shortlisting Dataset (short_listing_set.zip, up to 10 GB) is released on the website.
+• November 5, 2025, 23:59h:
+    ◦ Participants must submit their results on the Shortlisting Dataset.
+    ◦ Based on these results, 15-20 participants will be shortlisted for the offline solution evaluation. The Jury may adjust this number.
+    ◦ The shortlisted participants and cut-off scores are published, and individual scores are shared via email.
+• Post November 4, 2025 (After Challenge deadline):
+    ◦ The Holdout Test Set (up to 10 GB) is made available for final evaluation.
+    ◦ Shortlisted participants are asked to demonstrate their solutions at IIT Delhi.
+    ◦ Participants are allotted 2-hour slots to run their solutions on organizer-provided resources (Ubuntu 24.04 LTS, 48+ core CPU, 256+ GB RAM, A-100 GPU).
+    ◦ Final scores are computed based on the mAP score (50% weight), solution execution time (10%), memory footprint (10%), approach/methodologies (20%), and team capabilities (10%).
+    ◦ At most, the top 6 teams are selected based on their final score to proceed to Stage 2.
+Phase 3: Stage 2 and Stage 3 (Future)
+• Before Stage 2 Start:
+    ◦ Relative weightages of evaluation parameters for Stage 2 will be released.
+    ◦ A couple of more languages will be released for Stage 2 participants (in addition to English, Hindi, Urdu, Arabic, Nepalese, Persian).
+    ◦ Mentorship sessions with Experts/Mentors will be available for willing selected participants.
+• Stage 2 Execution:
+    ◦ Solutions are evaluated on: Document Layout (MaP), Text Extraction (CER/WER), Chart/Map to Natural Language Text (BlueRT + BertScore RT), Table to Natural Language Text (T2T-Gen), and Language Identification accuracy, precision, recall.
+    ◦ Organization-specific data may begin to be used towards the end of Stage 2 or transitioning into Stage 3.
+• Before Stage 3 Start:
+    ◦ Relative weightages of evaluation parameters for Stage 3 will be released.
+    ◦ Additional languages beyond those introduced in Stage 2 will be released for Stage 3 participants.
+    ◦ Mentorship sessions with Experts/Mentors will be available for willing selected participants.
+• Stage 3 Execution:
+    ◦ Solutions are evaluated on the same expanded metrics as Stage 2, with organization-specific data forming a significant part of the datasets.
+Cast of Characters: PS-05 Intelligent Multilingual Document Understanding Challenge
+• Participants:
+    ◦ Developers, researchers, and teams who create AI solutions for the challenge. They are responsible for developing, testing, and submitting their solutions, aiming to accurately extract structured information from diverse documents. The top 15-20 in Stage 1 are shortlisted for offline evaluation, and the top 6 proceed to Stage 2.
+• Organizers:
+    ◦ The entity or group managing the PS-05 Grand Challenge. They are responsible for defining the challenge scope, providing datasets, setting evaluation metrics, managing timelines, hosting the leaderboard, coordinating mentor sessions, and conducting evaluations (both online and offline). They also provide the resources for offline demonstrations at IIT Delhi.
+• Jury for this Problem Statement:
+    ◦ A group responsible for making discretionary decisions regarding the challenge, specifically mentioned in the context of adjusting the number of shortlisted participants for the Stage 1 offline evaluation based on overall performance.
+• Mentors/Experts:
+    ◦ Individuals who provide guidance and support to participants. In Stage 1, they address participant doubts via online meetings or email. In Stages 2 and 3, they offer sessions to help selected participants achieve the best solutions.
+• AI Systems:
+    ◦ The intelligent solutions developed by participants. These systems are the core focus of the challenge, designed to understand, parse, and extract structured information from multilingual documents, overcoming the limitations of traditional OCR.
+• Traditional OCRs (Optical Character Recognition Systems):
+    ◦ Existing technologies that serve as a baseline for the challenge. They are highlighted as having limitations in handling complex layouts, mixed scripts, and non-textual elements, which the PS-05 challenge aims to surpass.
