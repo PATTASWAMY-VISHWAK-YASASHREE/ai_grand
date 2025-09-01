@@ -1,0 +1,86 @@
+PS-05: Intelligent Multilingual Document Understanding Study Guide
+I. General Overview
+This document outlines the "PS-05: Intelligent Multilingual Document Understanding" AI Grand Challenge. The core problem addresses the complexities of extracting structured and semantically correct information from diverse, visually rich, and multilingual digital documents. Traditional Optical Character Recognition (OCR) systems are insufficient for this task due to issues like jumbled text, mixed scripts, and the inability to correctly interpret document elements such as tables, images, maps, and charts. The challenge aims to develop AI systems capable of generating structured, machine-friendly, yet human-readable outputs that preserve visual hierarchy, semantic grouping, and layout fidelity, thereby enhancing downstream AI/ML tasks.
+II. Key Objectives and Challenges
+The primary objective is to achieve multilingual, layout-aware document parsing across various scripts, formats, and writing directions. Specific languages targeted include English, Hindi, Urdu, Arabic, Nepalese, and Persian. The solution must accurately extract structured information, maintaining:
+• Visual hierarchy (headings, sections)
+• Semantic grouping (form fields, captions, references)
+• Layout fidelity (table structures, image alignment, reading order)
+• Interpretation of embedded elements (charts, plots, maps, figures)
+The extracted content needs to be represented in a standardized JSON format, with natural language descriptions for non-textual elements (tables, images, maps, charts) and line-wise bounding box coordinates for text.
+III. Challenge Stages and Evaluation
+The challenge is divided into three stages, with evaluation metrics evolving across stages:
+Stage 1 (Document Layout Focus):
+• Evaluation Parameter: Document Layout (Mean Average Precision - MaP at bbox threshold >= 0.5).
+• Datasets: Training Dataset (up to 10 GB), Mock Dataset (up to 10 GB for self-assessment and leaderboard), Shortlisting Dataset (up to 10 GB for selecting top 15-20 participants), Holdout Test Set (up to 10 GB for final evaluation).
+• Input/Output: Input will be JPEG/PNG images (potentially rotated, blurred, noisy). Output must be a JSON for each image detailing bounding box coordinates [x,y,h,w] and the class of the detected segment (e.g., Text, Table, Figure).
+• Offline Evaluation: Shortlisted participants will demonstrate their solutions on provided resources (Ubuntu 24.04 LTS, 48+ core CPU, 256+ GB RAM, A-100 GPU). Evaluation will consider mAP score (50% weight), robustness/efficiency (execution time, 10%), resource utilization (memory footprint, 10%), approach/methodologies (20%), and team capabilities (10%).
+Stage 2 & 3 (Expanded Metrics):
+• Evaluation Parameters: Document Layout (MaP), Text Extraction (Character Error Rate - CER / Word Error Rate - WER), Chart/Map to Natural Language Text (BlueRT + BertScore RT), Table to Natural Language Text (T2T-Gen), Language Identification accuracy, precision, recall.
+• Mentorship: Sessions with Mentors/Experts will be provided for selected participants.
+• Languages: Additional languages will be introduced in Stage 2 and 3.
+IV. Dataset Information
+The challenge utilizes indicative datasets for training and testing, including DocLayNet, PubLayNet, RvlCdip, ICDAR-MLT 2019, HI-OCR, FUNSD, and SROIE. Organization-specific data will be used in Stage 3.
+V. Output Format Details
+The envisaged output for each document element is a JSON structure:
+• Table: Natural language explanation of contents in plain text paragraphs with bbox coordinates.
+• Image: Natural language description of contents with bbox coordinates.
+• Map: Natural language description of contents with bbox coordinates.
+• Chart: Natural language description of contents with bbox coordinates.
+• Text: Extracted text with line-wise bbox coordinates and identified language.
+Quiz
+Instructions: Answer each question in 2-3 sentences.
+1. What is the primary limitation of traditional OCR systems that the PS-05 Grand Challenge aims to overcome?
+2. List three types of documents that the AI systems in this challenge are expected to handle.
+3. Besides English, name at least two other specific languages mentioned as being present in the documents.
+4. Describe what "layout fidelity" entails in the context of this challenge.
+5. How should the content of an image be represented in the final JSON output?
+6. What is the main evaluation metric for "Document Layout" in Stage 1?
+7. What kind of input format will participants receive for their solutions?
+8. Briefly explain the purpose of the "Mock Dataset" in Stage 1.
+9. During the offline solution evaluation in Stage 1, what operating system and GPU are participants expected to run their solutions on?
+10. What new evaluation metrics are introduced in Stage 2 beyond just document layout?
+--------------------------------------------------------------------------------
+Answer Key (Quiz)
+1. Traditional OCRs often fail to extract semantically correct text from various document elements like tables, images, or charts, leading to jumbled or mixed text. They also struggle with mixed scripts, making the output unsuitable for downstream AI/ML tasks.
+2. The AI systems are expected to handle a wide range of documents including legal contracts, academic papers, business reports, government forms, presentation decks, social media posts, and personal screenshots. These can be in formats like Word documents, PDFs, PowerPoint slides, and scanned images.
+3. Besides English, the documents will contain Hindi, Urdu, Arabic, Nepalese, and Persian. (Any two of these are acceptable).
+4. Layout fidelity refers to preserving the original structural arrangement of the document's elements. This includes maintaining table structures, image alignment, and the correct reading order of content, ensuring the visual integrity of the document is captured.
+5. The content of an image should be represented in the final JSON output as a natural language description of its contents. This description should also be accompanied by the bounding box (bbox) coordinates of the image.
+6. The main evaluation metric for "Document Layout" in Stage 1 is Mean Average Precision (MaP). This metric is specifically applied at a bounding box threshold of greater than or equal to 0.5.
+7. Participants will receive input in the form of JPEG/PNG images of documents. These images may also be rotated, blurred, or noisy, requiring the solution to handle such variations.
+8. The Mock Dataset in Stage 1 is provided for participants to test their solutions and for self-assessment. While participants submit results on this set, they do not have access to the ground truth, and it is used to publish a leaderboard, but not for official evaluation or selection.
+9. During the offline solution evaluation in Stage 1, participants are expected to run their solutions on an Ubuntu 24.04 LTS operating system. The GPU provided will be an A-100 with either 40 or 80 GB of memory.
+10. In Stage 2, new evaluation metrics include Character Error Rate (CER) and Word Error Rate (WER) for text extraction, BlueRT + BertScore RT for chart/map to natural language text, T2T-Gen for table to natural language text, and language identification accuracy, precision, and recall.
+--------------------------------------------------------------------------------
+Essay Format Questions
+1. Discuss the critical limitations of traditional OCR technologies in processing modern digital documents and explain how the PS-05 Grand Challenge's goals directly address these shortcomings.
+2. Elaborate on the multi-faceted nature of "accurately extracting structured information" as defined by the challenge. Provide examples for visual hierarchy, semantic grouping, layout fidelity, and embedded elements.
+3. Analyze the progression of evaluation metrics across the three stages of the challenge. Why might the organizers choose to focus primarily on "Document Layout" in Stage 1 before expanding to more complex metrics in subsequent stages?
+4. Describe the comprehensive nature of the final offline evaluation for shortlisted participants in Stage 1. Beyond the technical mAP score, what other aspects are assessed, and why are these crucial for a successful AI solution?
+5. The challenge emphasizes a standardized, machine-friendly yet human-readable output format. Discuss the benefits of this dual requirement for downstream AI/ML tasks and for human review, using the specified JSON output structure as an example.
+--------------------------------------------------------------------------------
+Glossary of Key Terms
+• AIML: Artificial Intelligence and Machine Learning. Refers to systems or tasks that leverage AI and ML technologies.
+• bbox co-ordinates: Bounding box coordinates. A set of values (e.g., [x, y, h, w] for x-coordinate, y-coordinate, height, width) that define the location and size of a rectangular region around an object or text segment in an image.
+• BertScore RT: An evaluation metric used for text generation tasks, particularly for assessing the quality of generated text by comparing it to reference text using contextual embeddings from BERT.
+• BleuRT: An evaluation metric, likely a variant or extension of BLEU (Bilingual Evaluation Understudy), used for assessing the quality of machine-generated text by comparing it to one or more human-generated reference translations.
+• CER (Character Error Rate): An evaluation metric used to quantify the number of character errors between a hypothesized output and a reference text, often used in speech recognition and OCR.
+• Downstream AIML related tasks: Subsequent AI and Machine Learning processes that rely on the output of a preceding task (in this case, structured document understanding). Examples include machine translation, Named Entity Recognition, and Retrieval Augmented Generation.
+• Ground Truth: The actual, correct data or labels for a dataset, used as a standard for evaluating the performance of a model.
+• HBB format: Horizontal Bounding Box format. Refers to bounding boxes that are always axis-aligned, typically defined by two points or a point, width, and height.
+• JSON (JavaScript Object Notation): A lightweight data-interchange format. It is human-readable and easy for machines to parse and generate, used here for the structured output.
+• Layout fidelity: The degree to which the spatial arrangement, structure, and visual presentation of elements (like tables, images, text blocks) from the original document are preserved in the extracted or parsed output.
+• MaP (Mean Average Precision): A common evaluation metric in object detection and information retrieval, which calculates the average precision across multiple classes or thresholds, here specifically for bounding box detection.
+• Mixed scripts: Documents containing text written in more than one writing system or alphabet (e.g., English Latin script alongside Arabic script).
+• Multilingual: Supporting or containing multiple languages.
+• Named Entity Recognition (NER): An information extraction task that seeks to locate and classify named entities (e.g., person names, organizations, locations) in unstructured text into pre-defined categories.
+• OCR (Optical Character Recognition): The mechanical or electronic conversion of images of typed, handwritten or printed text into machine-encoded text. Traditional OCR often struggles with complex layouts and non-standard elements.
+• Parsing: The process of analyzing a string of symbols, either in natural language or computer languages, according to the rules of a formal grammar. In this context, it refers to breaking down document structure.
+• Retrieval Augmented Generation (RAG): An AI framework that combines the strengths of retrieval-based and generation-based models, allowing an AI to retrieve relevant information from a knowledge base to inform its text generation.
+• Semantic grouping: Grouping elements in a document based on their meaning or function, rather than just their visual proximity (e.g., all form fields related to an address).
+• Structured outputs: Data that is organized into a predefined format (like JSON or a database schema) to make it easily searchable, filterable, and processable by machines.
+• T2T-Gen: A metric or framework likely referring to "Text-to-Text Generation," used to evaluate how well a model can transform one form of text (e.g., table data) into another (e.g., natural language description).
+• Vector search: A search method that uses vector embeddings to represent data (like documents or queries) and finds items that are "close" in the vector space, indicating semantic similarity.
+• Visual hierarchy: The arrangement of elements in a document to show their order of importance, typically through headings, subheadings, font sizes, and spacing.
+• WER (Word Error Rate): An evaluation metric for the performance of a speech recognition or OCR system, calculating the number of word errors (substitutions, deletions, insertions) between a recognized word sequence and a reference.
